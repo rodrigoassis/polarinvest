@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20131123162432) do
   create_table "investments", force: true do |t|
     t.integer  "user_id"
     t.integer  "asset_id"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -47,7 +48,6 @@ ActiveRecord::Schema.define(version: 20131123162432) do
     t.datetime "date"
     t.string   "transaction_type"
     t.decimal  "total_value",      precision: 10, scale: 5
-    t.string   "investment_type"
     t.integer  "shares_quantity"
     t.decimal  "unit_value",       precision: 10, scale: 5
     t.datetime "created_at"
