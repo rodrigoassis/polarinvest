@@ -46,6 +46,10 @@ group :production do
   gem 'unicorn'
 end
 
+group :test do
+  gem 'rspec-rails'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
