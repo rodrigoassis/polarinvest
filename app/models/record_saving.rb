@@ -1,0 +1,2 @@
+class RecordSaving < Record
+end

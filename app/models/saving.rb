@@ -1,2 +1,0 @@
-class Saving < Asset
-end

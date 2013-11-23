@@ -19,9 +19,21 @@ describe Asset do
     expect(record.asset.records.size).to eq 1
   end
 
+  it "destroys related records" do
+    record = FactoryGirl.create(:record)
+    record.asset.destroy
+    expect(Record.all.size).to eq 0
+  end
+
   it "has many investments" do
-    record = FactoryGirl.create(:investment)
-    expect(record.asset.investments.size).to eq 1
+    investment = FactoryGirl.create(:investment)
+    expect(investment.asset.investments.size).to eq 1
+  end
+
+  it "destroys related investments" do
+    investment = FactoryGirl.create(:investment)
+    investment.asset.destroy
+    expect(Investment.all.size).to eq 0
   end
 
 end
