@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  investment_id: 1
+  date: 2013-11-23 14:24:32
+  transaction_type: MyString
+  total_value: 9.99
+  investment_type: MyString
+  shares_quantity: 1
+  unit_value: 9.99
+
+two:
+  investment_id: 1
+  date: 2013-11-23 14:24:32
+  transaction_type: MyString
+  total_value: 9.99
+  investment_type: MyString
+  shares_quantity: 1
+  unit_value: 9.99
