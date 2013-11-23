@@ -47,10 +47,14 @@ group :production do
   gem 'unicorn'
 end
 
-group :test do
+group :development, :test do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
+group :test do
   gem 'capybara'
-  gem 'factory_girl'
+  gem 'faker'
 end
 
 # Use ActiveModel has_secure_password
