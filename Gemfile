@@ -36,7 +36,6 @@ end
 group :development do
   gem 'thin'
   gem 'better_errors'
-  gem 'pry'
   #gem 'capistrano-unicorn', :git => 'https://github.com/sosedoff/capistrano-unicorn.git', :branch => 'master', :require => false
 end
 
@@ -48,6 +47,7 @@ group :production do
 end
 
 group :development, :test do
+  gem 'pry'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
 end
