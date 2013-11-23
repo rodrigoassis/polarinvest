@@ -32,6 +32,20 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development do
+  gem 'thin'
+  gem 'better_errors'
+  gem 'pry'
+  #gem 'capistrano-unicorn', :git => 'https://github.com/sosedoff/capistrano-unicorn.git', :branch => 'master', :require => false
+end
+
+gem 'haml'
+
+# Use unicorn as the app server
+group :production do
+  gem 'unicorn'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
