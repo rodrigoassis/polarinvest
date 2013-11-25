@@ -13,6 +13,10 @@ describe User do
     FactoryGirl.build(:user, email: nil).should_not be_valid
   end
 
+  it "is invalid without password" do
+    FactoryGirl.build(:user, password: nil).should_not be_valid
+  end
+
   it "has many investments" do
     investment = FactoryGirl.create(:investment)
     expect(investment.user.investments.size).to eq 1

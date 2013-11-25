@@ -7,6 +7,32 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div>
+    <div>
+      <%= link_to "Polarinvest", root_path %>
+      <ul>
+        <li><%= link_to "Home", root_path %></li>
+        <% if user_signed_in? %>
+        <% end %>
+      </ul>
+      <ul>
+        <% if user_signed_in? %>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Login <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "PolarInvest",  new_user_session_path %></li>
+              <li><%= link_to "Twitter", 'auth/twitter' %></li>
+              <li><%= link_to "Google", 'auth/google' %></li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 
 <%= yield %>
 

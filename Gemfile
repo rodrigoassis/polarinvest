@@ -5,6 +5,7 @@ gem 'rails'
 
 gem 'pg'
 
+# Gems for user login
 gem 'devise'
 
 # Use SCSS for stylesheets
