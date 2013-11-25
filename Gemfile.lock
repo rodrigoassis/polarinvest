@@ -189,7 +189,7 @@ DEPENDENCIES
   jquery-rails
   pg
   pry
-  rails (= 4.0.0)
+  rails
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc
