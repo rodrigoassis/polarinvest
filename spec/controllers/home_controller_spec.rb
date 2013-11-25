@@ -74,4 +74,26 @@ describe HomeController do
     
     subject.current_user.should be_nil
   end
+
+  it "verifies google authentication" do
+    omniauth_hash = { provider: "google_oauth2",
+                      uid: "123545",
+                      info: {name: "John Doe", email: "johndoe@email.com"},
+                      credentials: {token: "testtoken234tsdf"}
+                    }
+
+    OmniAuth.config.add_mock(:google_oauth2, omniauth_hash)
+
+    request.env["devise.mapping"] = Devise.mappings[:user]
+    request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2]
+
+    request.env["omniauth.auth"][:uid].should == '123545'
+
+    user = User.find_for_google_oauth2(request.env["omniauth.auth"])
+
+    user.should_not be_nil
+    user.should be_valid
+    expect(user.name).to eq "John Doe"
+    expect(user.email).to eq "johndoe@email.com"
+  end
 end
