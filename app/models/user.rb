@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
 
   # Making user authenticatable through omniauth
-  devise :omniauthable, :omniauth_providers => [:google_oauth2, :facebook]
+  devise :omniauthable, :omniauth_providers => [:google_oauth2, :facebook, :twitter]
 
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
     data = access_token.info
@@ -33,6 +33,20 @@ class User < ActiveRecord::Base
     unless user
       user = User.create(name: auth.extra.raw_info.name, provider: auth.provider, uid: auth.uid, 
                           email: auth.info.email, password: Devise.friendly_token[0,20])
+    end
+    
+    return user
+  end
+
+
+  def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
+    # Find the user from provider or try to match email
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    
+    # Didn't find any user so create one
+    unless user
+      user = User.create(name: auth.info.name, provider: auth.provider, uid: auth.uid, 
+                          email: "#{auth.info.nickname}@fake_twitter_email.com", password: Devise.friendly_token[0,20])
     end
     
     return user
