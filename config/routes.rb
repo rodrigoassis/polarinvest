@@ -6,7 +6,8 @@ Polarinvest::Application.routes.draw do
   root 'home#index'
 
   # Devise callback redirection
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: "registrations" }
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

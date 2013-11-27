@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
     # Didn't find any user so create one
     unless user
-      user = User.create(name: data["name"], email: data["email"], password: Devise.friendly_token[0,20])
+      user = User.create(name: data["name"], email: data["email"], provider: "google_oauth2", password: Devise.friendly_token[0,20])
     end
 
     return user
@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
     # Didn't find any user so create one
     unless user
       user = User.create(name: auth.info.name, provider: auth.provider, uid: auth.uid, 
-                          email: "#{auth.info.nickname}@fake_twitter_email.com", password: Devise.friendly_token[0,20])
+                          email: "#{auth.info.nickname}@fake-twitter-email.com", password: Devise.friendly_token[0,20])
     end
     
     return user
