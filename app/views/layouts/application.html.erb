@@ -21,9 +21,7 @@
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Login <span class="caret"></span>
-            </a>
+            Login <span class="caret"></span>
             <ul class="dropdown-menu">
               <li><%= link_to "PolarInvest",  new_user_session_path %></li>
               <li><%= link_to "Facebook", user_omniauth_authorize_path(:facebook) %></li>
