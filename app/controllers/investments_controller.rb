@@ -6,7 +6,7 @@ class InvestmentsController < ApplicationController
   # GET /investments
   # GET /investments.json
   def index
-    @investments = Investment.all
+    @investments = current_user.investments
   end
 
   # GET /investments/1
@@ -26,7 +26,7 @@ class InvestmentsController < ApplicationController
   # POST /investments
   # POST /investments.json
   def create
-    @investment = Investment.new(investment_params)
+    @investment = current_user.investments.build(investment_params)
 
     respond_to do |format|
       if @investment.save

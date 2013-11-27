@@ -22,23 +22,24 @@ describe InvestmentsController do
 
   before { controller.stub(:authenticate_user!).and_return true }
 
+  before(:each) do
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    user = FactoryGirl.create(:user)
+    sign_in user
+  end
+
   # This should return the minimal set of attributes required to create a valid
   # Investment. As you add validations to Investment, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { asset: FactoryGirl.create(:asset), user: FactoryGirl.create(:user), type: 'InvestmentTypes::Saving' } }
+  let(:valid_attributes) { {  asset: FactoryGirl.create(:asset), 
+                              user: FactoryGirl.build(:user), 
+                              type: 'InvestmentTypes::Saving' 
+                          } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # InvestmentsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
-
-  describe "GET index" do
-    it "assigns all investments as @investments" do
-      investment = Investment.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:investments).should eq([investment])
-    end
-  end
 
   describe "GET show" do
     it "assigns the requested investment as @investment" do
