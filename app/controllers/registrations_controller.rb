@@ -1,11 +1,12 @@
 class RegistrationsController < Devise::RegistrationsController
+
   def update
     @user = User.find(current_user.id)
 
     successfully_updated = if provider_absentee?(params)
       @user.update_with_password(devise_parameter_sanitizer.sanitize(:account_update))
     else
-      # Remove the virtual current_password and provider attributes 
+      # Remove the virtual current_password and provider attributes
       # since update_without_password doesn't know how to ignore it
       params[:user].delete(:current_password)
       params[:user].delete(:provider)
@@ -15,7 +16,7 @@ class RegistrationsController < Devise::RegistrationsController
     if successfully_updated
       set_flash_message :notice, :updated
       # Sign in the user bypassing validation in case provider presence
-      sign_in @user, :bypass => true
+      sign_in @user, bypass: true
       redirect_to after_update_path_for(@user)
     else
       render "edit"
@@ -29,4 +30,5 @@ class RegistrationsController < Devise::RegistrationsController
     # No provider present
     !params[:user][:provider].present?
   end
+
 end
