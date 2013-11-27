@@ -12,7 +12,7 @@ describe RegistrationsController do
     subject.current_user.should_not be_nil
   end
 
-  it "don't allows users to sign in with no password" do
+  it "doesn't allow users to sign in without password" do
     visit "/users/sign_in"
 
     user = FactoryGirl.build(:user, password: "")
@@ -31,7 +31,7 @@ describe RegistrationsController do
     sign_in user
 
     sign_out :user
-    
+
     subject.current_user.should be_nil
   end
 
@@ -85,7 +85,6 @@ describe RegistrationsController do
                       }
                     }
 
-    
     request.env["omniauth.auth"] = OmniAuth.config.add_mock(:facebook, omniauth_hash)
 
     request.env["omniauth.auth"][:uid].should == '123123123123'
@@ -184,7 +183,6 @@ describe RegistrationsController do
                       }
                     }
 
-
     request.env["omniauth.auth"] = OmniAuth.config.add_mock(:twitter, omniauth_hash)
 
     request.env["omniauth.auth"][:uid].should == '123456'
@@ -260,7 +258,6 @@ describe RegistrationsController do
                         }
                       }
                     }
-
 
     request.env["omniauth.auth"] = OmniAuth.config.add_mock(:twitter, omniauth_hash)
 
