@@ -71,6 +71,6 @@ class InvestmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def investment_params
-      params.require(:investment).permit(:asset, :user, :type)
+      params.require(:investment).permit(:asset_id, :user_id, :type)
     end
 end

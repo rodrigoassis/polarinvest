@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<h3>Asset</h3>
+<p><%= @investment.asset.name %></p>
+
+<h3>Type</h3>
+<p><%= @investment.class.clean_name %></p>
 
 <%= link_to 'Edit', edit_investment_path(@investment) %> |
 <%= link_to 'Back', investments_path %>

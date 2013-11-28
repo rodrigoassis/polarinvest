@@ -65,24 +65,24 @@ describe InvestmentsController do
   end
 
   describe "POST create" do
-    # describe "with valid params" do
-    #   it "creates a new Investment" do
-    #     expect {
-    #       post :create, {:investment => valid_attributes}, valid_session
-    #     }.to change(Investment, :count).by(1)
-    #   end
+    describe "with valid params" do
+      it "creates a new Investment" do
+        expect {
+          post :create, {:investment => valid_attributes}, valid_session
+        }.to change(Investment, :count).by(1)
+      end
 
-    #   it "assigns a newly created investment as @investment" do
-    #     post :create, {:investment => valid_attributes}, valid_session
-    #     assigns(:investment).should be_a(Investment)
-    #     assigns(:investment).should be_persisted
-    #   end
+      it "assigns a newly created investment as @investment" do
+        post :create, {:investment => valid_attributes}, valid_session
+        assigns(:investment).should be_a(Investment)
+        assigns(:investment).should be_persisted
+      end
 
-    #   it "redirects to the created investment" do
-    #     post :create, {:investment => valid_attributes}, valid_session
-    #     response.should redirect_to(Investment.last)
-    #   end
-    # end
+      it "redirects to the created investment" do
+        post :create, {:investment => valid_attributes}, valid_session
+        response.should redirect_to(Investment.last)
+      end
+    end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved investment as @investment" do
@@ -102,29 +102,19 @@ describe InvestmentsController do
   end
 
   describe "PUT update" do
-    # describe "with valid params" do
-    #   it "updates the requested investment" do
-    #     investment = Investment.create! valid_attributes
-    #     # Assuming there are no other investments in the database, this
-    #     # specifies that the Investment created on the previous line
-    #     # receives the :update_attributes message with whatever params are
-    #     # submitted in the request.
-    #     Investment.any_instance.should_receive(:update).with({ "these" => "params" })
-    #     put :update, {:id => investment.to_param, :investment => { "these" => "params" }}, valid_session
-    #   end
+    describe "with valid params" do
+      it "assigns the requested investment as @investment" do
+        investment = Investment.create! valid_attributes
+        put :update, {:id => investment.to_param, :investment => valid_attributes}, valid_session
+        assigns(:investment).should eq(investment)
+      end
 
-    #   it "assigns the requested investment as @investment" do
-    #     investment = Investment.create! valid_attributes
-    #     put :update, {:id => investment.to_param, :investment => valid_attributes}, valid_session
-    #     assigns(:investment).should eq(investment)
-    #   end
-
-    #   it "redirects to the investment" do
-    #     investment = Investment.create! valid_attributes
-    #     put :update, {:id => investment.to_param, :investment => valid_attributes}, valid_session
-    #     response.should redirect_to(investment)
-    #   end
-    # end
+      it "redirects to the investment" do
+        investment = Investment.create! valid_attributes
+        put :update, {:id => investment.to_param, :investment => valid_attributes}, valid_session
+        response.should redirect_to(investment)
+      end
+    end
 
     describe "with invalid params" do
       it "assigns the investment as @investment" do

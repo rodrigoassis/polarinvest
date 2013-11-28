@@ -36,4 +36,20 @@ describe Asset do
     expect(Investment.all.size).to eq 0
   end
 
+  it "can retrive subclasses" do
+    AssetTypes::Saving.subclasses.size.should > 0
+    expect(AssetTypes::Saving.subclasses).to eq([AssetTypes::Saving])
+  end
+
+end
+
+describe AssetTypes::Saving do
+
+  it "can pretend its a Asset" do
+    expect(AssetTypes::Saving.model_name).to eq("Asset")
+  end
+
+  it "can awnser own name without modules" do
+    expect(AssetTypes::Saving.clean_name).to eq("Saving")
+  end
 end

@@ -14,4 +14,20 @@ describe Investment do
     FactoryGirl.build(:investment, user: nil).should_not be_valid
   end
 
+  it "can retrive subclasses" do
+    InvestmentTypes::Saving.subclasses.size.should > 0
+    expect(InvestmentTypes::Saving.subclasses).to eq([InvestmentTypes::Saving])
+  end
+
+end
+
+describe InvestmentTypes::Saving do
+
+  it "can pretend its a Investment" do
+    expect(InvestmentTypes::Saving.model_name).to eq("Investment")
+  end
+
+  it "can awnser own name without modules" do
+    expect(InvestmentTypes::Saving.clean_name).to eq("Saving")
+  end
 end

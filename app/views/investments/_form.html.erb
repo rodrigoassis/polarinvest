@@ -11,11 +11,11 @@
     </div>
   <% end %>
 
-  <div><%= f.label :asset %><br />
+  <div><%= f.label :asset_id %><br />
   <%= f.select :asset_id, Asset.all.map{|asset| [asset.name, asset.id]} %></div>
 
   <div><%= f.label :type %><br />
-  <%= f.select :type, [['InvestmentTypes::Saving'], ['Saving']] %></div>
+  <%= f.select :type, Investment.subclasses.map{|subclass| [subclass.clean_name, subclass.to_s]} %></div>
 
   <div class="actions">
     <%= f.submit %>
