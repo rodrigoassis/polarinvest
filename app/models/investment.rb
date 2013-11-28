@@ -4,5 +4,5 @@ class Investment < ActiveRecord::Base
 
   has_many :transactions, dependent: :destroy
 
-  validates :asset, :user, presence: true
+  validates :asset_id, :user_id, presence: true
 end

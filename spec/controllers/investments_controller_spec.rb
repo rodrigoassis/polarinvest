@@ -31,8 +31,8 @@ describe InvestmentsController do
   # This should return the minimal set of attributes required to create a valid
   # Investment. As you add validations to Investment, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { {  asset: FactoryGirl.create(:asset), 
-                              user: FactoryGirl.build(:user), 
+  let(:valid_attributes) { {  asset_id: FactoryGirl.create(:asset).id, 
+                              user_id: User.last.id, 
                               type: 'InvestmentTypes::Saving' 
                           } }
 

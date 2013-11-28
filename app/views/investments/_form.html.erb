@@ -12,10 +12,10 @@
   <% end %>
 
   <div><%= f.label :asset %><br />
-  <%= f.select :asset_id, Asset.all %></div>
+  <%= f.select :asset_id, Asset.all.map{|asset| [asset.name, asset.id]} %></div>
 
   <div><%= f.label :type %><br />
-  <%= f.text_field :type %></div>
+  <%= f.select :type, [['InvestmentTypes::Saving'], ['Saving']] %></div>
 
   <div class="actions">
     <%= f.submit %>
