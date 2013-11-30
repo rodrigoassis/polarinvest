@@ -10,4 +10,14 @@ class Investment < ActiveRecord::Base
   def self.subclasses
     [InvestmentTypes::Saving]
   end
+
+  def translate_asset_id_into_asset_name(params)
+    params_modified = params
+    params_modified[:asset_id] = Asset.where(name: params_modified[:asset_id]).first.id
+    return params_modified
+  end
+
+  def invesment_asset_name
+    return Asset.find(self.asset_id).name
+  end
 end

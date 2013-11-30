@@ -12,7 +12,7 @@
   <% end %>
 
   <div><%= f.label :asset_id %><br />
-  <%= f.select :asset_id, Asset.all.map{|asset| [asset.name, asset.id]} %></div>
+  <%= f.autocomplete_field :asset_id, autocomplete_asset_name_assets_path, value: @investment_asset_name %></div>
 
   <div><%= f.label :type %><br />
   <%= f.select :type, Investment.subclasses.map{|subclass| [subclass.clean_name, subclass.to_s]} %></div>

@@ -26,7 +26,8 @@ class InvestmentsController < ApplicationController
   # POST /investments
   # POST /investments.json
   def create
-    @investment = current_user.investments.build(investment_params)
+    investment_params_modified = translate_asset_id_into_asset_name(investment_params)
+    @investment = current_user.investments.build(investment_params_modified)
 
     respond_to do |format|
       if @investment.save
@@ -42,8 +43,10 @@ class InvestmentsController < ApplicationController
   # PATCH/PUT /investments/1
   # PATCH/PUT /investments/1.json
   def update
+    investment_params_modified = translate_asset_id_into_asset_name(investment_params)
+
     respond_to do |format|
-      if @investment.update(investment_params)
+      if @investment.update(investment_params_modified)
         format.html { redirect_to @investment, notice: 'Investment was successfully updated.' }
         format.json { head :no_content }
       else
@@ -67,6 +70,7 @@ class InvestmentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_investment
       @investment = Investment.find(params[:id])
+      @investment_asset_name = @investment.invesment_asset_name
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
