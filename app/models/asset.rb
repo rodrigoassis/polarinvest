@@ -4,7 +4,7 @@ class Asset < ActiveRecord::Base
 
   validates :name, :type, presence: true
 
-  # List of every type of assets as a subclass. TO-DO: Make it not hardcoded
+  # List of every type of assets as a subclass. TODO: Make it not hardcoded
   def self.subclasses
     [AssetTypes::Saving]
   end
