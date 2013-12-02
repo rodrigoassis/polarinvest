@@ -4,7 +4,7 @@ class AssetsController < ApplicationController
   before_action :set_asset, only: [:show, :edit, :update, :destroy]
 
   # Autocomplete action for assets
-  autocomplete :asset, :name, :full => true
+  autocomplete :asset, :name, full: true
 
   # GET /assets
   # GET /assets.json

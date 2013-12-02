@@ -6,8 +6,4 @@ class InvestmentTypes::Saving < Investment
     Investment.model_name
   end
 
-  # Extract the real class name without any module
-  def self.clean_name
-    self.name.split('::').last
-  end
 end

@@ -70,7 +70,7 @@ class InvestmentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_investment
       @investment = Investment.find(params[:id])
-      @investment_asset_name = @investment.invesment_asset_name
+      @investment_asset_name = @investment.investment_asset_name
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

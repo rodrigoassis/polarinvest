@@ -5,9 +5,5 @@ class AssetTypes::Saving < Asset
   def self.model_name
     Asset.model_name
   end
-
-  # Extract the real class name without any module
-  def self.clean_name
-    self.name.split('::').last
-  end
+  
 end

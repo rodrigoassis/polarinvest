@@ -5,11 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :investments, dependent: :destroy
+  has_many :transactions, through: :investments
 
   validates :name, presence: true
 
   # Making user authenticatable through omniauth
-  devise :omniauthable, :omniauth_providers => [:google_oauth2, :facebook, :twitter]
+  devise :omniauthable, omniauth_providers: [:google_oauth2, :facebook, :twitter]
 
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
     data = access_token.info
@@ -27,7 +28,7 @@ class User < ActiveRecord::Base
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     # Find the user from provider or try to match email
-    user = User.where(:provider => auth.provider, :uid => auth.uid).first || User.where(email: auth.info.email).first
+    user = User.where(provider: auth.provider, uid: auth.uid).first || User.where(email: auth.info.email).first
     
     # Didn't find any user so create one
     unless user
@@ -41,7 +42,7 @@ class User < ActiveRecord::Base
 
   def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
     # Find the user from provider or try to match email
-    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    user = User.where(provider: auth.provider, uid: auth.uid).first
     
     # Didn't find any user so create one
     unless user

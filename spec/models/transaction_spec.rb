@@ -30,4 +30,9 @@ describe Transaction do
     FactoryGirl.build(:transaction, unit_value: nil).should be_valid
   end
 
+  it "can retrieve transaction type" do
+    Transaction.all_types.should_not be_nil
+    Transaction.all_types.should_not be_empty
+  end
+
 end

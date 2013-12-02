@@ -19,6 +19,12 @@ describe Investment do
     expect(InvestmentTypes::Saving.subclasses).to eq([InvestmentTypes::Saving])
   end
 
+  it "can retrive a name" do
+    investment = FactoryGirl.create(:investment)
+    investment.name.should_not be_nil
+    investment.name.should_not be_empty
+    investment.name.should eq("#{Asset.find(investment.asset_id).name} - #{investment.class.clean_name}")
+  end
 end
 
 describe InvestmentTypes::Saving do

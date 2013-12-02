@@ -8,4 +8,9 @@ class Asset < ActiveRecord::Base
   def self.subclasses
     [AssetTypes::Saving]
   end
+  
+  # Extract the real class name without any module
+  def self.clean_name
+    self.name.split('::').last
+  end
 end

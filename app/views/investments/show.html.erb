@@ -1,8 +1,12 @@
-<h3>Asset</h3>
-<p><%= @investment_asset_name %></p>
+<p>
+  <strong>Asset:</strong>
+  <%= @investment_asset_name %>
+</p>
 
-<h3>Type</h3>
-<p><%= @investment.class.clean_name %></p>
+<p>
+  <strong>Type:</strong>
+  <%= @investment.class.clean_name %>
+</p>
 
 <%= link_to 'Edit', edit_investment_path(@investment) %> |
 <%= link_to 'Back', investments_path %>
