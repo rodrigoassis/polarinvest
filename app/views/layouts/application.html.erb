@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
-  <title>PolarInvest</title>
+  <title>PolarInvest - Comparação de Investimentos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -38,16 +38,16 @@
               <li><a href="#contact">Contato</a></li>
             </ul>
             <h1>
-              <!-- <%= link_to "PolarInvest", root_path %> -->
               <%= image_tag "img/logo/logo.png", alt: "logo name" %>
             </h1>
             <h1 class="page-title">PolarInvest</h1>
             <h4 class="page-sub-title">
-              Acompanhe seus investimentos da forma mais fácil.
+              <br/>
+              Compare e acompanhe todos os seus investimentos em um único lugar.
             </h4>
             <div class="showcase">
-              <a class="btn btn-success btn-lg hidden-xs" href="#portfolio">Cadastre-se agora &nbsp;&nbsp;<i class="fa fa-play"></i></a>
-              <a class="btn btn-success btn-sm visible-xs" href="#portfolio">Cadastre-se agora &nbsp;&nbsp;<i class="fa fa-play"></i></a>
+              <a class="btn btn-success btn-lg hidden-xs" href="#portfolio">Cadastre-se agora</a>
+              <a class="btn btn-success btn-sm visible-xs" href="#portfolio">Cadastre-se agora</a>
             </div>
           </div>
         <!--/HERO -->
@@ -93,40 +93,41 @@
         <div class="row">
           <div class="col-md-3 col-sm-6">
             <div class="feature">
+              <i class="extralarge fa fa-thumbs-up"></i>
+              <br/><br/>
+              <h3>Fácil de usar</h3>
+              <br/>
+              <p>Uma ferramenta simples, intuitiva e <strong>inteligente</strong>, facilitando a análise e o acompanhamento de qualquer investimento.</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="feature">
+              <i class="extralarge fa fa-usd"></i>
+              <br/><br/>
+              <h3>Grátis</h3>
+              <br/>
+              <p>A ferramenta é gratuita e estará disponível 24 horas por dia em qualquer lugar. </p>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="feature">
+              <i class="extralarge fa fa-mobile"></i>
+              <br/><br/>
+              <h3>Móvel</h3>
+              <br/>
+              <p>Acesse o <strong>PolarInvest</strong> do seu smartphone ou tablet e se surpreenda com o layout que se adaptará ao tamanho da sua tela. </p>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="feature">
               <i class="extralarge fa fa-bar-chart-o"></i>
               <br/><br/>
-              <h3>Analytics</h3>
+              <h3>Gráficos</h3>
               <br/>
-              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+              <p>Utilize ferramentas gráficas para analisar seus investimentos. <strong>Personalize</strong> as visualizações para acompanhar da melhor forma os seus ativos.</p>
             </div>
           </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="feature">
-              <i class="extralarge fa fa-video-camera"></i>
-              <br/><br/>
-              <h3>Media</h3>
-              <br/>
-              <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. </p>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="feature">
-              <i class="extralarge fa fa-bullhorn"></i>
-              <br/><br/>
-              <h3>Notifications</h3>
-              <br/>
-              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="feature">
-              <i class="extralarge fa fa-picture-o"></i>
-              <br/><br/>
-              <h3>Design</h3>
-              <br/>
-              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
-            </div>
-          </div>
+
         </div>
         <div class="divide60"></div>
       </div>
@@ -142,26 +143,23 @@
                     <div class="row">
               <div class="col-md-12">
                   <h2 class="text-center">
-                  <span class="bigintro-light">Contact Us</span>
+                  <span class="bigintro-light">Contato</span>
                   </h2>
               </div>
             </div>
             <div class="divide20"></div>
             <div class="row">
               <div class="col-md-6 col-md-offset-3 form-input">
-                <input id="title" type="text" placeholder="Title" value="" name="title"/>
-              </div>
-              <div class="col-md-6 col-md-offset-3 form-input">
-                <input id="name" type="text" placeholder="Name" value="" name="name"/>
+                <input id="name" type="text" placeholder="Nome" value="" name="name"/>
               </div>
               <div class="col-md-6 col-md-offset-3 form-input">
                 <input id="email" type="email" placeholder="Email" value="" name="email"/>
               </div>
               <div class="col-md-6 col-md-offset-3 form-input">
-                <textarea id="message"  placeholder="Message" name="message"></textarea>
+                <textarea id="message"  placeholder="Mensagem" name="message"></textarea>
               </div>
               <div class="col-md-6 col-md-offset-3 form-submit">
-                <button id="submit" class="btn btn-warning btn-lg" type="submit">SEND</button>
+                <button id="submit" class="btn btn-warning btn-lg" type="submit">Enviar</button>
               </div>
             </div>
             <div class="divide60"></div>
@@ -176,30 +174,21 @@
       <div class="container">
         <div id="column-footer" class="row-fluid">
           <div class="col-sm-4">
-            <h3>Learn More</h3>
+            <h3>PolarInvest</h3>
             <ul>
-              <li><a href="#">How it works</a></li>
-              <li><a href="#">Safety measures</a></li>
-              <li><a href="#">Testimonials</a></li>
-              <li><a href="#">The Blog</a></li>
+              <li><a href="#features">Funcionalidades</a></li>
             </ul>
           </div>
           <div class="col-sm-4">
-            <h3>Help & Support</h3>
+            <h3>Suporte</h3>
             <ul>
-              <li><a href="#">Frequently Asked Questions</a></li>
-              <li><a href="#">Creative Requirements</a></li>
-              <li><a href="#">Glossary of Terms</a></li>
-              <li><a href="#">The Safety</a></li>
+              <li><a href="#contact">Contato</a></li>
             </ul>
           </div>
           <div class="col-sm-4">
-            <h3>About Us</h3>
+            <h3>Sobre</h3>
             <ul>
-              <li><a href="#">Press</a></li>
-              <li><a href="#">Our Team</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#">Our Partners</a></li>
+              <li><a href="http://codepolaris.com">Code Polaris</a></li>
             </ul>
           </div>
         </div>

@@ -6660,7 +6660,7 @@ background-attachment:scroll!important
 
 #header {
 background:url(img/bg.jpg) 0 0 no-repeat fixed;
-height:100%;
+height:80%;
 overflow:hidden;
 color:#f4f4f4
 }
@@ -7073,12 +7073,11 @@ border-radius:4px
 .feature {
 color:#555;
 text-align:center;
-min-height:400px;
+min-height:360px;
 border-radius:4px;
 background-color:#f4f4f4;
 border:4px solid #555;
 padding:0 10px;
-margin-bottom:30px
 }
 
 .feature i:hover {
@@ -7139,7 +7138,7 @@ margin-top:0!important
 
 #parallax-3 {
 background:url(img/parallax.jpg) 50% 0 no-repeat fixed;
-height:700px;
+height:550px;
 margin:0!important;
 width:100%;
 max-width:1920px
