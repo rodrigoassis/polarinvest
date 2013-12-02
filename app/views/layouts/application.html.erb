@@ -25,17 +25,17 @@
         </div>
         <div class="divide60"></div>
         <div id="mobile-menu" class="list-group collapse text-center">
-          <a href="#features" class="list-group-item">Funcionalidades</a>
-          <a href="#contact" class="list-group-item">Contato</a>
+          <a href="#features" class="list-group-item anchor">Funcionalidades</a>
+          <a href="#contact" class="list-group-item anchor">Contato</a>
         </div>
 
           <!-- HERO -->
           <div class="container-transparent text-center">
             <ul class="heronav left hidden-xs">
-              <li><a href="#features">Funcionalidades</a></li>
+              <li><a href="#features" class="anchor">Funcionalidades</a></li>
             </ul>
             <ul class="heronav right hidden-xs">
-              <li><a href="#contact">Contato</a></li>
+              <li><a href="#contact" class="anchor">Contato</a></li>
             </ul>
             <h1>
               <%= image_tag "img/logo/logo.png", alt: "logo name" %>
@@ -62,14 +62,14 @@
         <div class="row">
           <div class="col-sm-3 col-md-4">
             <div class="logo" >
-              <a href="index.html"><%= image_tag "img/logo/logo.png", alt: "logo name" %>
+              <%= link_to(image_tag("img/logo/logo.png", alt: "logo name"), root_path) %>
             </div>
           </div>
           <div class="col-sm-9 col-md-8">
             <nav id="fixed-top-navigation">
               <ul class="list-inline pull-right">
-                <li><a href="#features">Funcionalidades</a></li>
-                <li><a href="#contact">Contato</a></li>
+                <li><a href="#features" class="anchor">Funcionalidades</a></li>
+                <li><a href="#contact" class="anchor">Contato</a></li>
               </ul>
             </nav>
           </div>
@@ -176,13 +176,13 @@
           <div class="col-sm-4">
             <h3>PolarInvest</h3>
             <ul>
-              <li><a href="#features">Funcionalidades</a></li>
+              <li><a href="#features" class="anchor">Funcionalidades</a></li>
             </ul>
           </div>
           <div class="col-sm-4">
             <h3>Suporte</h3>
             <ul>
-              <li><a href="#contact">Contato</a></li>
+              <li><a href="#contact" class="anchor">Contato</a></li>
             </ul>
           </div>
           <div class="col-sm-4">
@@ -199,7 +199,7 @@
 
   <div>
     <div>
-      <%= link_to "PolarInvest", root_path %>
+
       <ul>
         <li><%= link_to "Home", root_path %></li>
         <% if user_signed_in? %>
