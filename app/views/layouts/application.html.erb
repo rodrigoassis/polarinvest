@@ -27,6 +27,7 @@
         <div id="mobile-menu" class="list-group collapse text-center">
           <a href="#features" class="list-group-item anchor">Funcionalidades</a>
           <a href="#contact" class="list-group-item anchor">Contato</a>
+          <%= link_to 'Login', new_user_session_path, class: 'list-group-item anchor'%>
         </div>
 
           <!-- HERO -->
@@ -36,6 +37,7 @@
             </ul>
             <ul class="heronav right hidden-xs">
               <li><a href="#contact" class="anchor">Contato</a></li>
+              <li><%= link_to 'Login', new_user_session_path %></li>
             </ul>
             <h1>
               <%= image_tag "img/logo/logo.png", alt: "logo name" %>
@@ -70,6 +72,7 @@
               <ul class="list-inline pull-right">
                 <li><a href="#features" class="anchor">Funcionalidades</a></li>
                 <li><a href="#contact" class="anchor">Contato</a></li>
+                <li><%= link_to 'Login', new_user_session_path %></li>
               </ul>
             </nav>
           </div>
@@ -122,7 +125,7 @@
             <div class="feature">
               <i class="extralarge fa fa-bar-chart-o"></i>
               <br/><br/>
-              <h3>Gráficos</h3>
+              <h3>Ferramentas Gráficas</h3>
               <br/>
               <p>Utilize ferramentas gráficas para analisar seus investimentos. <strong>Personalize</strong> as visualizações para acompanhar da melhor forma os seus ativos.</p>
             </div>
@@ -195,33 +198,6 @@
         </div>
     </section>
     <!--/FOOTER -->
-  </div>
-
-  <div>
-    <div>
-
-      <ul>
-        <li><%= link_to "Home", root_path %></li>
-        <% if user_signed_in? %>
-          <li><%= link_to "Profile", edit_user_registration_path %></li>
-        <% end %>
-      </ul>
-      <ul>
-        <% if user_signed_in? %>
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li>
-            Login <span class="caret"></span>
-            <ul class="dropdown-menu">
-              <li><%= link_to "PolarInvest",  new_user_session_path %></li>
-              <li><%= link_to "Facebook", user_omniauth_authorize_path(:facebook) %></li>
-              <li><%= link_to "Google", user_omniauth_authorize_path(:google_oauth2) %></li>
-              <li><%= link_to "Twitter", user_omniauth_authorize_path(:twitter) %></li>
-            </ul>
-          </li>
-        <% end %>
-      </ul>
-    </div>
   </div>
 
   <%= yield %>

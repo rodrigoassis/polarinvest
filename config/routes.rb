@@ -6,7 +6,7 @@ Polarinvest::Application.routes.draw do
   root 'home#index'
 
   # Devise callback redirection
-  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: "registrations" }
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: "registrations", sessions: "sessions" }
 
 
   # Example of regular route:
@@ -43,7 +43,7 @@ Polarinvest::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
