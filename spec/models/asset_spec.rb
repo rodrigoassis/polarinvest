@@ -41,6 +41,15 @@ describe Asset do
     expect(AssetTypes::Saving.subclasses).to eq([AssetTypes::Saving])
   end
 
+  it "can get records values from a start date" do
+    asset = FactoryGirl.create(:asset)
+    record = FactoryGirl.create(:record, asset_id: asset.id)
+
+    # Default factory it's Time.now - 7.days
+    expect(asset.values_from(Time.now - 1.day)).to eq([]) # too short time range
+    asset.values_from(Time.now - 14.day).should_not be([]) # long, valid range
+  end
+
 end
 
 describe AssetTypes::Saving do
