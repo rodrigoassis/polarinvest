@@ -10,8 +10,10 @@ Polarinvest::Application.routes.draw do
   resources :investments
   resources :transactions
   resources :assets do
-    get :autocomplete_asset_name, :on => :collection
+    get :autocomplete_asset_name, on: :collection
   end
+
+  get :dashboard, to: 'home#dashboard'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
