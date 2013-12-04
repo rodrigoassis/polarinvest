@@ -18,16 +18,12 @@ class Investment < ActiveRecord::Base
     return params_modified
   end
 
-  def investment_asset_name
-    return Asset.find(self.asset_id).name
-  end
-
   # Extract the real class name without any module
   def self.clean_name
     self.name.split('::').last
   end
 
   def name
-    return "#{investment_asset_name} - #{self.class.clean_name}"
+    return "#{self.asset.name} - #{self.class.clean_name}"
   end
 end
