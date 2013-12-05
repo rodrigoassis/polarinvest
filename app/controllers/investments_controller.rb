@@ -26,7 +26,7 @@ class InvestmentsController < ApplicationController
   # POST /investments
   # POST /investments.json
   def create
-    investment_params_modified = Investment.translate_asset_id_into_asset_name(investment_params)
+    investment_params_modified = Investment.translate_asset_name_into_asset_id(investment_params)
     @investment = current_user.investments.build(investment_params_modified)
 
     respond_to do |format|
@@ -43,7 +43,7 @@ class InvestmentsController < ApplicationController
   # PATCH/PUT /investments/1
   # PATCH/PUT /investments/1.json
   def update
-    investment_params_modified = Investment.translate_asset_id_into_asset_name(investment_params)
+    investment_params_modified = Investment.translate_asset_name_into_asset_id(investment_params)
 
     respond_to do |format|
       if @investment.update(investment_params_modified)

@@ -12,7 +12,7 @@ class Investment < ActiveRecord::Base
     [InvestmentTypes::Saving]
   end
 
-  def self.translate_asset_id_into_asset_name(params)
+  def self.translate_asset_name_into_asset_id(params)
     params_modified = params
     params_modified[:asset_id] = Asset.where(name: params_modified[:asset_id]).first.try(:id)
     return params_modified

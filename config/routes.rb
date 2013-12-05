@@ -14,6 +14,7 @@ Polarinvest::Application.routes.draw do
   end
 
   get :dashboard, to: 'home#dashboard'
+  post '/', to: 'home#show_asset'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
