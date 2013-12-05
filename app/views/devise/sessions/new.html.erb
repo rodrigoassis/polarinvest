@@ -1,3 +1,8 @@
+<div class="center">
+  <strong>Ou acesse pela sua conta PolarInvest</strong>
+</div>
+<div class="divide-20"></div>
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), role: 'form') do |f| %>
   <div class="form-group">
     <%= f.label :email %>
@@ -16,3 +21,9 @@
   </div>
 
 <% end %>
+
+<div class="login-helpers">
+  <a href="#" >Esqueceu sua senha?</a> <br>
+  Ainda não possui conta?
+  <%= link_to "Cadastre-se agora!", new_registration_path(resource_name) %>
+</div>
