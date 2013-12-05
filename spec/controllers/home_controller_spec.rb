@@ -53,13 +53,6 @@ describe HomeController do
     current_path.should == "/"
   end
 
-  it "allows user to access dashboard" do
-    user = sign_in_user
-    visit "/dashboard"
-
-    current_path.should == "/dashboard"
-  end
-
   it "allows signed user to access dashboard" do
     user = sign_in_user
     visit "/dashboard"
@@ -67,7 +60,7 @@ describe HomeController do
     current_path.should == "/dashboard"
   end
 
-  it "don't allows user to access dashboard without sign_in" do
+  it "don't allows visitant to access dashboard without sign_in" do
     visit "/dashboard"
 
     current_path.should == "/users/sign_in"
