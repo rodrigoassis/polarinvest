@@ -27,7 +27,11 @@
         <div id="mobile-menu" class="list-group collapse text-center">
           <a href="#features" class="list-group-item anchor">Funcionalidades</a>
           <a href="#contact" class="list-group-item anchor">Contato</a>
-          <%= link_to 'Login', new_user_session_path, class: 'list-group-item anchor'%>
+          <% if user_signed_in? %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'list-group-item anchor' %>
+          <% else %>
+            <%= link_to 'Login', new_user_session_path, class: 'list-group-item anchor'%>
+          <% end %>
         </div>
 
           <!-- HERO -->
@@ -37,7 +41,11 @@
             </ul>
             <ul class="heronav right hidden-xs">
               <li><a href="#contact" class="anchor">Contato</a></li>
-              <li><%= link_to 'Login', new_user_session_path %></li>
+              <% if user_signed_in? %>
+                <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li><%= link_to 'Login', new_user_session_path %></li>
+              <% end %>
             </ul>
             <h1>
               <%= image_tag "img/logo/logo.png", alt: "logo name" %>
@@ -72,7 +80,11 @@
               <ul class="list-inline pull-right">
                 <li><a href="#features" class="anchor">Funcionalidades</a></li>
                 <li><a href="#contact" class="anchor">Contato</a></li>
-                <li><%= link_to 'Login', new_user_session_path %></li>
+                <% if user_signed_in? %>
+                  <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+                <% else %>
+                  <li><%= link_to 'Login', new_user_session_path %></li>
+                <% end %>
               </ul>
             </nav>
           </div>
