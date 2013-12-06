@@ -3,7 +3,15 @@
 </div>
 <div class="divide-20"></div>
 
+<% if flash.present? %>
+  <div class="alert alert-danger">
+    <a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), role: 'form') do |f| %>
+
   <div class="form-group">
     <%= f.label :email %>
     <i class="fa fa-envelope"></i>
