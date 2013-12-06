@@ -6584,10 +6584,10 @@ fieldset[disabled] .btn-yellow.active {
 }
 /* Patterns */
 .pattern {
-  background-image: url("../img/pattern.png");
+  background-image: url("img/pattern.png");
 }
 .dots {
-  background-image: url("../img/dots.png");
+  background-image: url("img/dots.png");
 }
 /*-----------------------------------------------------------------------------------*/
 /*	Grids and Box
