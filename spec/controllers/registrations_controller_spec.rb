@@ -1,6 +1,16 @@
 require 'spec_helper'
 
 describe RegistrationsController do
+  render_views
+
+  def sign_in_user provider=nil
+    user = FactoryGirl.create(:user, provider: provider)
+    visit "/users/sign_in"
+    fill_in "Email",                 :with => user.email
+    fill_in "Senha",              :with => user.password
+    click_button "Entrar"
+    return user
+  end
 
   it "allows users to sign in" do
     visit "/users/sign_in"
@@ -33,6 +43,47 @@ describe RegistrationsController do
     sign_out :user
 
     subject.current_user.should be_nil
+  end
+
+  it "update user data with a provider" do
+    user = sign_in_user :facebook
+
+    visit "/users/edit"
+
+    fill_in "Name",                 :with => "#{user.name} ALTERED"
+    fill_in "Email",                :with => user.email
+
+    click_button "Update"
+
+    current_path.should == "/"
+  end
+
+  it "update user data with no provider" do
+    user = sign_in_user
+
+    visit "/users/edit"
+
+    fill_in "Name",                 :with => "#{user.name} ALTERED"
+    fill_in "Email",                :with => user.email
+    fill_in "Current password",     :with => user.password
+
+    click_button "Update"
+
+    current_path.should == "/"
+  end
+
+  it "update user data with a invalid password" do
+    user = sign_in_user
+
+    visit "/users/edit"
+
+    fill_in "Name",                 :with => "#{user.name} ALTERED"
+    fill_in "Email",                :with => user.email
+    fill_in "Current password",     :with => "wrong_password"
+
+    click_button "Update"
+
+    current_path.should == "/users"
   end
 
   it "verifies google authentication for a new user" do

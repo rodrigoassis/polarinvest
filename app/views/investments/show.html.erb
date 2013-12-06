@@ -1,0 +1,12 @@
+<p>
+  <strong>Asset:</strong>
+  <%= @investment.asset.name %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @investment.class.clean_name %>
+</p>
+
+<%= link_to 'Edit', edit_investment_path(@investment) %> |
+<%= link_to 'Back', investments_path %>

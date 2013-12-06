@@ -18,10 +18,12 @@ module Polarinvest
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.i18n.default_locale = 'pt-BR'
 
     # TODO Solve this 'secret_key_base' problem. This is not an elegant solution
     config.secret_key_base = 'blipblapblup'
+
+    config.i18n.available_locales = 'pt-BR'
 
     config.generators do |g|
       g.test_framework :rspec,

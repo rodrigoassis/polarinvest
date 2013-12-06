@@ -12,5 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
+//= require autocomplete-rails
 //= require turbolinks
+//= require highcharts                                                           
+//= require highcharts-more                                                         
+//= require highstock
 //= require_tree .
