@@ -1,5 +1,5 @@
 class Dashboard::AssetsController < DashboardController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: :autocomplete_asset_name
 
   before_action :set_asset, only: [:show, :edit, :update, :destroy]
 
