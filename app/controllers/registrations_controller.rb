@@ -1,5 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
 
+  layout 'login'
+
   def update
     @user = User.find(current_user.id)
 
