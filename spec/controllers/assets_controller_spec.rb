@@ -18,7 +18,7 @@ require 'spec_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-describe AssetsController do
+describe Dashboard::AssetsController do
 
   before { controller.stub(:authenticate_user!).and_return true }
 
@@ -39,12 +39,12 @@ describe AssetsController do
       asset3 = FactoryGirl.create(:asset, name: 'Poupança_3')
 
       get "index"
-      
+
       assigns(:assets).map(&:name).include?(asset1.name).should be_true
       assigns(:assets).map(&:name).include?(asset2.name).should be_true
       assigns(:assets).map(&:name).include?(asset3.name).should be_true
     end
-    
+
     it "assigns all assets as @assets" do
       asset = Asset.create! valid_attributes
       get :index, {}

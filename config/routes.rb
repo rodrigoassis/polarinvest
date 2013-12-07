@@ -7,10 +7,13 @@ Polarinvest::Application.routes.draw do
 
   # Devise callback redirection
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: "registrations", sessions: "sessions" }
-  resources :investments
-  resources :transactions
-  resources :assets do
-    get :autocomplete_asset_name, on: :collection
+
+  namespace :dashboard do
+    resources :investments
+    resources :transactions
+    resources :assets do
+      get :autocomplete_asset_name, on: :collection
+    end
   end
 
   get :dashboard, to: 'home#dashboard'

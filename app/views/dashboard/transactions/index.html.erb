@@ -18,7 +18,7 @@
         <td><%= format_date(transaction.date) %></td>
         <td><%= transaction.transaction_type %></td>
         <td><%= transaction.total_value %></td>
-        <td><%= link_to 'Show', transaction %></td>
+        <td><%= link_to 'Show', dashboard_transaction_path(transaction) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Transaction', new_transaction_path %>
+<%= link_to 'New Transaction', new_dashboard_transaction_path %>

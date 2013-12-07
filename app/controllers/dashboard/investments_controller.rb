@@ -1,7 +1,9 @@
-class InvestmentsController < ApplicationController
+class Dashboard::InvestmentsController < DashboardController
   before_filter :authenticate_user!
-  
+
   before_action :set_investment, only: [:show, :edit, :update, :destroy]
+
+  layout 'dashboard'
 
   # GET /investments
   # GET /investments.json
@@ -31,7 +33,7 @@ class InvestmentsController < ApplicationController
 
     respond_to do |format|
       if @investment.save
-        format.html { redirect_to @investment, notice: 'Investment was successfully created.' }
+        format.html { redirect_to dashboard_investment_path(@investment), notice: 'Investment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @investment }
       else
         format.html { render action: 'new' }
@@ -47,7 +49,7 @@ class InvestmentsController < ApplicationController
 
     respond_to do |format|
       if @investment.update(investment_params_modified)
-        format.html { redirect_to @investment, notice: 'Investment was successfully updated.' }
+        format.html { redirect_to dashboard_investment_path(@investment), notice: 'Investment was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -61,7 +63,7 @@ class InvestmentsController < ApplicationController
   def destroy
     @investment.destroy
     respond_to do |format|
-      format.html { redirect_to investments_url }
+      format.html { redirect_to dashboard_investments_url }
       format.json { head :no_content }
     end
   end

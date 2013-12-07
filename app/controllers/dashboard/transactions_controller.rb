@@ -1,7 +1,9 @@
-class TransactionsController < ApplicationController
+class Dashboard::TransactionsController < DashboardController
   before_filter :authenticate_user!
-  
+
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
+
+  layout 'dashboard'
 
   # GET /transactions
   # GET /transactions.json
@@ -30,7 +32,7 @@ class TransactionsController < ApplicationController
 
     respond_to do |format|
       if @transaction.save
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
+        format.html { redirect_to dashboard_transaction_path(@transaction), notice: 'Transaction was successfully created.' }
         format.json { render action: 'show', status: :created, location: @transaction }
       else
         format.html { render action: 'new' }
@@ -44,7 +46,7 @@ class TransactionsController < ApplicationController
   def update
     respond_to do |format|
       if @transaction.update(transaction_params)
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully updated.' }
+        format.html { redirect_to dashboard_transaction_path(@transaction), notice: 'Transaction was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -58,7 +60,7 @@ class TransactionsController < ApplicationController
   def destroy
     @transaction.destroy
     respond_to do |format|
-      format.html { redirect_to transactions_url }
+      format.html { redirect_to dashboard_transactions_url }
       format.json { head :no_content }
     end
   end
