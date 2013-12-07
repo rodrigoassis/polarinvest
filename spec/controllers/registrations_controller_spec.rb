@@ -7,8 +7,8 @@ describe RegistrationsController do
     user = FactoryGirl.create(:user, provider: provider)
     visit "/users/sign_in"
     fill_in "Email",                 :with => user.email
-    fill_in "Password",              :with => user.password
-    click_button "Sign in"
+    fill_in "Senha",              :with => user.password
+    click_button "Entrar"
     return user
   end
 
