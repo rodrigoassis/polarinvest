@@ -13,11 +13,11 @@
       <ul>
         <li><%= link_to "Home", root_path %></li>
         <% if user_signed_in? %>
+          <li><%= link_to "Assets", assets_path %></li>
+          <li><%= link_to "Investments", investments_path %></li>
+          <li><%= link_to "Transactions", transactions_path %></li>
+          <li><%= link_to "Dashboard", dashboard_path %></li>
           <li><%= link_to "Profile", edit_user_registration_path %></li>
-        <% end %>
-      </ul>
-      <ul>
-        <% if user_signed_in? %>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li>
@@ -33,6 +33,11 @@
       </ul>
     </div>
   </div>
+
+  <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
+  <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
+  <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
+
 
 <%= yield %>
 

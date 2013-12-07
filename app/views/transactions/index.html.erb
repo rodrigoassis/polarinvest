@@ -1,0 +1,29 @@
+<h1>Listing transactions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Investment</th>
+      <th>Date</th>
+      <th>Transaction type</th>
+      <th>Total value</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.investment.name %></td>
+        <td><%= format_date(transaction.date) %></td>
+        <td><%= transaction.transaction_type %></td>
+        <td><%= transaction.total_value %></td>
+        <td><%= link_to 'Show', transaction %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Transaction', new_transaction_path %>
