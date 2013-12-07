@@ -3,8 +3,6 @@ class Dashboard::TransactionsController < DashboardController
 
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
 
-  layout 'dashboard'
-
   # GET /transactions
   # GET /transactions.json
   def index

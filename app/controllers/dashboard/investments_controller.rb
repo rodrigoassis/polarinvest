@@ -3,8 +3,6 @@ class Dashboard::InvestmentsController < DashboardController
 
   before_action :set_investment, only: [:show, :edit, :update, :destroy]
 
-  layout 'dashboard'
-
   # GET /investments
   # GET /investments.json
   def index

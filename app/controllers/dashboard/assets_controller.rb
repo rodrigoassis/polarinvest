@@ -3,8 +3,6 @@ class Dashboard::AssetsController < DashboardController
 
   before_action :set_asset, only: [:show, :edit, :update, :destroy]
 
-  layout 'dashboard'
-
   # Autocomplete action for assets
   autocomplete :asset, :name, full: true
 

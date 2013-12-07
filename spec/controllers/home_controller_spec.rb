@@ -38,14 +38,14 @@ describe HomeController do
   it "allows users to sign an account with a name" do
     visit "/users/sign_up"
 
-    fill_in "Nome",    :with => "Regular User"
-    fill_in "Email",    :with => "user@example.com"
-    fill_in "Senha", :with => "password"
-    fill_in "Confirmação da senha", :with => "password"
+    fill_in "Nome",  with: "Regular User"
+    fill_in "Email", with: "user@example.com"
+    fill_in "Senha", with: "password"
+    fill_in "Confirmação da senha", with: "password"
 
     click_button "Cadastrar"
 
-    current_path.should == "/"
+    current_path.should == "/dashboard"
   end
 
   it "allows signed user to access dashboard" do

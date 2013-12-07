@@ -14,15 +14,7 @@
     <%= stylesheet_link_tag "carousel", media: "all", "data-turbolinks-track" => true %>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
 
-    <%= javascript_include_tag "jquery", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "bootstrap.min", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "waypoints.min", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "jquery.scrollTo", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "jquery.nav", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "jquery.isotope.min", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "imagesloaded.pkgd.min", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "jquery.colorbox.min", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "script", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 
     <%= csrf_meta_tags %>
   </head>
@@ -41,7 +33,7 @@
             <a href="#features" class="list-group-item anchor">Por que usar?</a>
             <a href="#contact" class="list-group-item anchor">Contato</a>
             <% if user_signed_in? %>
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'list-group-item anchor' %>
+              <%= link_to "Logout", destroy_user_session_path, class: 'list-group-item anchor', method: 'delete' %>
             <% else %>
               <%= link_to 'Login', new_user_session_path, class: 'list-group-item anchor'%>
             <% end %>
