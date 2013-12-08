@@ -60,6 +60,9 @@
                 <br/>
                 Compare e acompanhe todos os seus investimentos em um único lugar.
               </h4>
+
+              <%= yield %>
+              
               <div class="showcase">
                 <%= link_to "Cadastre-se agora", new_user_registration_path, class: 'btn btn-success btn-lg' %>
               </div>
@@ -215,8 +218,6 @@
       </section>
       <!--/FOOTER -->
     </div>
-
-    <%= yield %>
 
   </body>
 </html>
