@@ -92,6 +92,18 @@
               <%= link_to '<i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">Dashboard</span>
               <span class="selected"></span>'.html_safe, dashboard_path %>
             </li>
+            <li>
+              <%= link_to '<i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">Assets</span>
+              <span class="selected"></span>'.html_safe, dashboard_assets_path %>
+            </li>
+            <li>
+              <%= link_to '<i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">Investments</span>
+              <span class="selected"></span>'.html_safe, dashboard_investments_path %>
+            </li>
+            <li>
+              <%= link_to '<i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">Transactions</span>
+              <span class="selected"></span>'.html_safe, dashboard_transactions_path %>
+            </li>
           </ul>
           <!-- /SIDEBAR MENU -->
         </div>
@@ -119,6 +131,9 @@
                   </div>
                 </div>
               </div>
+
+              <%= yield %>
+              
               <!-- /PAGE HEADER -->
             </div><!-- /CONTENT-->
           </div>
@@ -134,5 +149,3 @@
     </script>
   </body>
 </html>
-
-<%= yield %>
