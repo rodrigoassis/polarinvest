@@ -65,8 +65,8 @@ describe HomeController do
     asset = FactoryGirl.create(:asset)
     visit "/"
 
-    fill_in "Asset", with: "Poupança"
-    click_button "Search"
+    fill_in "home_name", with: "Poupança"
+    click_button "Buscar"
 
     current_path.should == "/"
   end
