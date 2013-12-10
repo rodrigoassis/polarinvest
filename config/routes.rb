@@ -69,4 +69,7 @@ Polarinvest::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  match '/404' => 'errors#not_found', via: [:get, :post, :put, :delete]
+  match '/500' => 'errors#server_error', via: [:get, :post, :put, :delete]
 end
