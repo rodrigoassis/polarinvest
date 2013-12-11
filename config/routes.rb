@@ -70,6 +70,6 @@ Polarinvest::Application.routes.draw do
   #     resources :products
   #   end
 
-  match '/404' => 'errors#not_found', via: [:get, :post, :put, :delete]
-  match '/500' => 'errors#server_error', via: [:get, :post, :put, :delete]
+  match '/404', to: 'errors#not_found', via: [:get, :post, :put, :delete]
+  match '/500', to: 'errors#server_error', via: [:get, :post, :put, :delete]
 end
