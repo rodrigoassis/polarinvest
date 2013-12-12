@@ -6,6 +6,7 @@ class Dashboard::InvestmentsController < DashboardController
   # GET /investments
   # GET /investments.json
   def index
+    @page_title = 'Investimentos'
     @investments = current_user.investments
   end
 

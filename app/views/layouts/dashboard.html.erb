@@ -93,15 +93,11 @@
               <span class="selected"></span>'.html_safe, dashboard_path %>
             </li>
             <li>
-              <%= link_to '<i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">Assets</span>
-              <span class="selected"></span>'.html_safe, dashboard_assets_path %>
-            </li>
-            <li>
-              <%= link_to '<i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">Investments</span>
+              <%= link_to '<i class="fa fa-bar-chart-o fa-fw"></i> <span class="menu-text">Investimentos</span>
               <span class="selected"></span>'.html_safe, dashboard_investments_path %>
             </li>
             <li>
-              <%= link_to '<i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">Transactions</span>
+              <%= link_to '<i class="fa fa-exchange fa-fw"></i> <span class="menu-text">Transações</span>
               <span class="selected"></span>'.html_safe, dashboard_transactions_path %>
             </li>
           </ul>
@@ -126,15 +122,18 @@
                     </ul>
                     <!-- /BREADCRUMBS -->
                     <div class="clearfix">
-                      <h3 class="content-title pull-left">PolarInvest</h3>
+                      <h3 class="content-title pull-left"><%= @page_title %></h3>
                     </div>
                   </div>
                 </div>
               </div>
-
-              <%= yield %>
-              
               <!-- /PAGE HEADER -->
+
+              <!-- DASHBOARD CONTENT -->
+              <div class="row">
+                <%= yield %>
+              </div>
+
             </div><!-- /CONTENT-->
           </div>
         </div>

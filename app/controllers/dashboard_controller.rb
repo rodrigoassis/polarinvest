@@ -4,6 +4,7 @@ class DashboardController < ApplicationController
   layout 'dashboard'
 
   def index
+    @page_title = 'PolarInvest'
   end
 
 end
