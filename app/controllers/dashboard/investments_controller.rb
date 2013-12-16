@@ -17,16 +17,19 @@ class Dashboard::InvestmentsController < DashboardController
 
   # GET /investments/new
   def new
+    @page_title = 'Investimentos'
     @investment = Investment.new
   end
 
   # GET /investments/1/edit
   def edit
+    @page_title = 'Investimentos'
   end
 
   # POST /investments
   # POST /investments.json
   def create
+    @page_title = 'Investimentos'
     investment_params_modified = Investment.translate_asset_name_into_asset_id(investment_params)
     @investment = current_user.investments.build(investment_params_modified)
 
@@ -44,6 +47,7 @@ class Dashboard::InvestmentsController < DashboardController
   # PATCH/PUT /investments/1
   # PATCH/PUT /investments/1.json
   def update
+    @page_title = 'Investimentos'
     investment_params_modified = Investment.translate_asset_name_into_asset_id(investment_params)
 
     respond_to do |format|
