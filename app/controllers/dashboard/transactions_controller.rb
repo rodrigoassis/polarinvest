@@ -7,6 +7,7 @@ class Dashboard::TransactionsController < DashboardController
   # GET /transactions.json
   def index
     @transactions = current_user.transactions
+    @page_title = 'Transações'
   end
 
   # GET /transactions/1
@@ -16,16 +17,19 @@ class Dashboard::TransactionsController < DashboardController
 
   # GET /transactions/new
   def new
+    @page_title = 'Transações'
     @transaction = Transaction.new
   end
 
   # GET /transactions/1/edit
   def edit
+    @page_title = 'Transações'
   end
 
   # POST /transactions
   # POST /transactions.json
   def create
+    @page_title = 'Transações'
     @transaction = Transaction.new(transaction_params)
 
     respond_to do |format|
@@ -42,6 +46,7 @@ class Dashboard::TransactionsController < DashboardController
   # PATCH/PUT /transactions/1
   # PATCH/PUT /transactions/1.json
   def update
+    @page_title = 'Transações'
     respond_to do |format|
       if @transaction.update(transaction_params)
         format.html { redirect_to dashboard_transaction_path(@transaction), notice: 'Transaction was successfully updated.' }
