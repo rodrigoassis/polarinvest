@@ -9,7 +9,7 @@ class Investment < ActiveRecord::Base
 
   # List of every type of investments as a subclass. TODO: Make it not hardcoded
   def self.subclasses
-    [InvestmentTypes::Saving]
+    [InvestmentTypes::Saving, AssetTypes::Fund]
   end
 
   def self.translate_asset_name_into_asset_id(params)

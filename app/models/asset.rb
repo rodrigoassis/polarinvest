@@ -6,7 +6,7 @@ class Asset < ActiveRecord::Base
 
   # List of every type of assets as a subclass. TODO: Make it not hardcoded
   def self.subclasses
-    [AssetTypes::Saving]
+    [AssetTypes::Saving, AssetTypes::Fund]
   end
   
   # Extract the real class name without any module

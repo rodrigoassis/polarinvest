@@ -9,6 +9,7 @@
         <thead>
           <tr>
             <th>Investimento</th>
+            <th>Tipo</th>
             <th>Data</th>
             <th>Tipo de transação</th>
             <th>Valor total</th>
@@ -18,10 +19,11 @@
         <tbody>
           <% @transactions.each do |transaction| %>
             <tr class="gradeA">
-              <td><%= transaction.investment.name %></td>
-              <td><%= format_date(transaction.date) %></td>
+              <td><%= transaction.investment.asset.name %></td>
+              <td><%= transaction.investment.class.clean_name %></td>
+              <td><%= I18n.l(transaction.date, format: :tiny) %></td>
               <td><%= transaction.transaction_type %></td>
-              <td><%= transaction.total_value %></td>
+              <td><%= number_to_currency(transaction.total_value, locale: :'pt-BR') %></td>
               <td><%= link_to 'Show', dashboard_transaction_path(transaction) %></td>
             </tr>
           <% end %>
