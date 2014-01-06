@@ -17,4 +17,4 @@ pickle-email-*.html
 .project
 config/initializers/secret_token.rb
 logfile
-config/database.yml
+database.yml

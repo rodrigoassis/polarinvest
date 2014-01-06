@@ -73,6 +73,9 @@ group :test do
   gem 'simplecov'
 end
 
+# Web services and integrations settings and support
+gem 'bovespa-prices'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
