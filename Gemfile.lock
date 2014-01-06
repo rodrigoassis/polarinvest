@@ -38,6 +38,9 @@ GEM
     better_errors (1.0.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
+    bovespa-prices (1.0.3)
+      httpclient
+      nokogiri
     builder (3.1.4)
     capybara (2.2.0)
       mime-types (>= 1.16)
@@ -80,6 +83,7 @@ GEM
     hashie (2.0.5)
     hike (1.2.3)
     httpauth (0.2.0)
+    httpclient (2.3.4.1)
     i18n (0.6.5)
     jbuilder (1.5.2)
       activesupport (>= 3.0.0)
@@ -231,6 +235,7 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors
+  bovespa-prices
   capybara
   coffee-rails (~> 4.0.0)
   devise

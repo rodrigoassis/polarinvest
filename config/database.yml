@@ -9,7 +9,7 @@ development:
   encoding: utf-8
   database: polarinvest_development
   pool: 5
-  username: root
+  username: marcosserpa
   password:
 
 # Warning: The database defined as "test" will be erased and
@@ -20,7 +20,7 @@ test:
   encoding: utf-8
   database: polarinvest_test
   pool: 5
-  username: root
+  username: marcosserpa
   password:
 
 production:
@@ -28,5 +28,5 @@ production:
   encoding: utf-8
   database: polarinvest
   pool: 5
-  username: root
+  username: marcosserpa
   password:
