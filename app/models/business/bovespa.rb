@@ -14,13 +14,14 @@ module Business
 		end
 
 		# === Extract all ISIN Bovespa codes
+    # OBS: Use the last codes file downloading in Bovespa site
 		def self.extract_codes
 			@converter = Encoding::Converter.new("ISO-8859-1", "UTF-8")
 			@codes = []
 
 			begin
-				if File.file?("public/NUMERACA.TXT")
-					File.open("public/NUMERACA.TXT", "r").each_line do |line|
+				if File.file?("/Users/marcosserpa/Desktop/Angel/Desenvolvimento/polarinvest/public/NUMERACA.TXT")
+					File.open("/Users/marcosserpa/Desktop/Angel/Desenvolvimento/polarinvest/public/NUMERACA.TXT", "r").each_line do |line|
 						line = @converter.convert(line)
 
 						unless !line.present?
@@ -66,10 +67,10 @@ module Business
 									:VALE3, :VALE5, :VIVT4, :VLID3, :WEGE3)
 		end
 
-		# Returns the history of one option
+		# Returns the share values history of one year (in the file's name) and save in DB
 		def self.fetch_history_values
 			# TODO Fix the folder location with the real files folder location on server
-			File.open("/Users/marcosserpa/Desenvolvimento/files/COTAHIST_A2012.TXT", "r") do |file_handle|
+			File.open("/Users/marcosserpa/Desktop/Angel/COTAHIST_A2012.TXT", "r") do |file_handle|
 			 	file_handle.each do |line|
 			  	if line[0..1] == "01" and line[24..26].strip == '010'
 			  		# Find or create the share
