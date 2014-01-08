@@ -25,7 +25,7 @@ def alter_valid_attributes valid_attributes
   return params
 end
 
-describe InvestmentsController do
+describe Dashboard::InvestmentsController do
 
   before { controller.stub(:authenticate_user!).and_return true }
 
@@ -38,9 +38,9 @@ describe InvestmentsController do
   # This should return the minimal set of attributes required to create a valid
   # Investment. As you add validations to Investment, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { {  asset_id: FactoryGirl.create(:asset).id, 
-                              user_id: User.last.id, 
-                              type: 'InvestmentTypes::Saving' 
+  let(:valid_attributes) { {  asset_id: FactoryGirl.create(:asset).id,
+                              user_id: User.last.id,
+                              type: 'InvestmentTypes::Saving'
                           } }
 
   # This should return the minimal set of values that should be in the session
@@ -132,7 +132,7 @@ describe InvestmentsController do
         investment = Investment.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Investment.any_instance.stub(:save).and_return(false)
-        put :update, {:id => investment.to_param, :investment => { invalid: "invalid" }}, valid_session
+        put :update, {id: investment.to_param, investment: { invalid: "invalid" }}, valid_session
         assigns(:investment).should eq(investment)
       end
 
@@ -140,7 +140,7 @@ describe InvestmentsController do
         investment = Investment.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Investment.any_instance.stub(:save).and_return(false)
-        put :update, {:id => investment.to_param, :investment => { invalid: "invalid" }}, valid_session
+        put :update, {id: investment.to_param, investment: { invalid: "invalid" }}, valid_session
         response.should render_template("edit")
       end
     end
@@ -150,14 +150,14 @@ describe InvestmentsController do
     it "destroys the requested investment" do
       investment = Investment.create! valid_attributes
       expect {
-        delete :destroy, {:id => investment.to_param}, valid_session
+        delete :destroy, {id: investment.to_param}, valid_session
       }.to change(Investment, :count).by(-1)
     end
 
     it "redirects to the investments list" do
       investment = Investment.create! valid_attributes
-      delete :destroy, {:id => investment.to_param}, valid_session
-      response.should redirect_to(investments_url)
+      delete :destroy, {id: investment.to_param}, valid_session
+      response.should redirect_to(dashboard_investments_url)
     end
   end
 

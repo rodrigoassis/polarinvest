@@ -7,13 +7,18 @@ Polarinvest::Application.routes.draw do
 
   # Devise callback redirection
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: "registrations", sessions: "sessions" }
-  resources :investments
-  resources :transactions
-  resources :assets do
-    get :autocomplete_asset_name, on: :collection
+
+  namespace :dashboard do
+    resources :investments
+    resources :transactions
+    resources :assets do
+      get :autocomplete_asset_name, on: :collection
+    end
   end
 
-  get :dashboard, to: 'home#dashboard'
+  get :dashboard, to: 'dashboard#index'
+
+  get :home_dashboard, to: 'home#dashboard'
   post '/', to: 'home#show_asset'
 
   # Example of regular route:
@@ -64,4 +69,7 @@ Polarinvest::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  match '/404', to: 'errors#not_found', via: [:get, :post, :put, :delete]
+  match '/500', to: 'errors#server_error', via: [:get, :post, :put, :delete]
 end

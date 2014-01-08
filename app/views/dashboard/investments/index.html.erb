@@ -1,0 +1,32 @@
+<div class="col-md-12">
+  <!-- BOX -->
+  <div class="box border green">
+    <div class="box-title">
+      <h4><i class="fa fa-table"></i>Investimentos</h4>
+    </div>
+    <div class="box-body">
+      <table id="datatable1" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Ativo</th>
+            <th colspan="2">Opções</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @investments.each do |investment| %>
+            <tr class="gradeA">
+              <td><%= investment.asset.name %></td>
+              <td><%= link_to 'Editar', edit_dashboard_investment_path(investment) %></td>
+              <td><%= link_to 'Excluir', dashboard_investment_path(investment), method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= link_to 'Novo Investimento', new_dashboard_investment_path %>
+    </div>
+  </div>
+  <!-- /BOX -->
+</div>
+
+
+

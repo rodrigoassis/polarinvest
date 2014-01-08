@@ -1,0 +1,40 @@
+<div class="box-body form">
+  <%= form_for([:dashboard, @investment], html: {class: "form-horizontal"}) do |f| %>
+    <div class="wizard-form">
+      <div class="wizard-content">
+        <div class="tab-content">
+          <div class="tab-pane active">
+            <div class="form-group <%= 'has-error' if f.object.errors.include?(:asset_id) %>">
+              <%= f.label :asset_id, class: "control-label col-md-3" %>
+              <div class="col-md-4">
+                <%= f.autocomplete_field :asset_id, autocomplete_asset_name_dashboard_assets_path, value: (@investment.asset.name unless @investment.asset.nil?), class: 'form-control', placeholder: "Busque seu ativo" %>
+                <% if f.object.errors.include?(:asset_id) %>
+                  <span class="help-block"><%= f.object.errors.messages[:asset_id].first %></span>
+                <% end %>
+              </div>
+            </div>
+            <div class="form-group <%= 'has-error' if f.object.errors.include?(:type) %>">
+              <%= f.label :type, class: "control-label col-md-3" %>
+              <div class="col-md-4">
+                <%= f.select :type, Investment.subclasses.map{|subclass| [subclass.clean_name, subclass.to_s]}, {}, class: 'col-md-12 full-width-fix form-control' %>
+                <% if f.object.errors.include?(:type) %>
+                  <span class="help-block"><%= f.object.errors.messages[:type].first %></span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wizard-buttons">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-md-offset-3 col-md-9">
+              <%= link_to '<i class="fa fa-arrow-circle-left"></i> Voltar'.html_safe, dashboard_investments_path, class: "btn btn-default prevBtn" %>
+              <button type="submit" class="btn btn-primary submitBtn">Cadastrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

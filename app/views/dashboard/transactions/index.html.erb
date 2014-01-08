@@ -1,0 +1,37 @@
+<div class="col-md-12">
+  <!-- BOX -->
+  <div class="box border green">
+    <div class="box-title">
+      <h4><i class="fa fa-table"></i>Transações</h4>
+    </div>
+    <div class="box-body">
+      <table id="datatable1" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Investimento</th>
+            <th>Tipo</th>
+            <th>Data</th>
+            <th>Tipo de transação</th>
+            <th>Valor total</th>
+            <th>Opções</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @transactions.each do |transaction| %>
+            <tr class="gradeA">
+              <td><%= transaction.investment.asset.name %></td>
+              <td><%= transaction.investment.class.clean_name %></td>
+              <td><%= I18n.l(transaction.date, format: :tiny) %></td>
+              <td><%= transaction.transaction_type %></td>
+              <td><%= number_to_currency(transaction.total_value, locale: :'pt-BR') %></td>
+              <td><%= link_to 'Show', dashboard_transaction_path(transaction) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= link_to 'Nova Transação', new_dashboard_transaction_path %>
+    </div>
+  </div>
+  <!-- /BOX -->
+</div>
+
