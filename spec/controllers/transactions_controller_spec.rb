@@ -18,7 +18,7 @@ require 'spec_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-describe TransactionsController do
+describe Dashboard::TransactionsController do
 
   before { controller.stub(:authenticate_user!).and_return true }
 
@@ -85,7 +85,7 @@ describe TransactionsController do
 
       it "redirects to the created transaction" do
         post :create, {:transaction => valid_attributes}, valid_session
-        response.should redirect_to(Transaction.last)
+        response.should redirect_to(dashboard_transaction_path(Transaction.last))
       end
     end
 
@@ -127,7 +127,7 @@ describe TransactionsController do
       it "redirects to the transaction" do
         transaction = Transaction.create! valid_attributes
         put :update, {:id => transaction.to_param, :transaction => valid_attributes}, valid_session
-        response.should redirect_to(transaction)
+        response.should redirect_to(dashboard_transaction_path(transaction))
       end
     end
 
@@ -161,7 +161,7 @@ describe TransactionsController do
     it "redirects to the transactions list" do
       transaction = Transaction.create! valid_attributes
       delete :destroy, {:id => transaction.to_param}, valid_session
-      response.should redirect_to(transactions_url)
+      response.should redirect_to(dashboard_transactions_url)
     end
   end
 

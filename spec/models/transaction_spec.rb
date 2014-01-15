@@ -23,7 +23,10 @@ describe Transaction do
   end
 
   it "is valid without shares_quantity" do
-    FactoryGirl.build(:transaction, shares_quantity: nil).should_not be_valid
+    transaction = FactoryGirl.build(:transaction, shares_quantity: nil)
+
+    transaction.should be_valid if transaction.investment.type =='InvestmentTypes::Saving'
+    transaction.should_not be_valid if transaction.investment.type !='InvestmentTypes::Saving'
   end
 
   it "is valid without unit_value" do

@@ -38,7 +38,7 @@ describe Asset do
 
   it "can retrive subclasses" do
     AssetTypes::Saving.subclasses.size.should > 0
-    expect(AssetTypes::Saving.subclasses).to eq([AssetTypes::Saving])
+    expect(AssetTypes::Saving.subclasses).to eq([AssetTypes::Saving, AssetTypes::Stock])
   end
 
   it "can get records values from a start date" do
@@ -53,12 +53,21 @@ describe Asset do
 end
 
 describe AssetTypes::Saving do
-
   it "can pretend its a Asset" do
     expect(AssetTypes::Saving.model_name).to eq("Asset")
   end
 
   it "can awnser own name without modules" do
     expect(AssetTypes::Saving.clean_name).to eq("Saving")
+  end
+end
+
+describe AssetTypes::Stock do
+  it "can pretend its a Asset" do
+    expect(AssetTypes::Stock.model_name).to eq("Asset")
+  end
+
+  it "can awnser own name without modules" do
+    expect(AssetTypes::Stock.clean_name).to eq("Stock")
   end
 end

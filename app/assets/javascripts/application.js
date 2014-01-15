@@ -11,6 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap.min
+//= require waypoints.min
+//= require jquery.scrollTo
+//= require jquery.nav
+//= require jquery.isotope.min
+//= require imagesloaded.pkgd.min
+//= require jquery.colorbox.min
+//= require script
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require autocomplete-rails
@@ -18,4 +26,3 @@
 //= require highcharts
 //= require highcharts-more
 //= require highstock
-//= require_tree .

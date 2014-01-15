@@ -16,7 +16,7 @@ describe Investment do
 
   it "can retrive subclasses" do
     InvestmentTypes::Saving.subclasses.size.should > 0
-    expect(InvestmentTypes::Saving.subclasses).to eq([InvestmentTypes::Saving])
+    expect(InvestmentTypes::Saving.subclasses).to eq([InvestmentTypes::Saving, InvestmentTypes::Stock])
   end
 
   it "can retrive a name" do
@@ -28,12 +28,21 @@ describe Investment do
 end
 
 describe InvestmentTypes::Saving do
-
   it "can pretend its a Investment" do
     expect(InvestmentTypes::Saving.model_name).to eq("Investment")
   end
 
   it "can awnser own name without modules" do
     expect(InvestmentTypes::Saving.clean_name).to eq("Saving")
+  end
+end
+
+describe InvestmentTypes::Stock do
+  it "can pretend its a Investment" do
+    expect(InvestmentTypes::Stock.model_name).to eq("Investment")
+  end
+
+  it "can awnser own name without modules" do
+    expect(InvestmentTypes::Stock.clean_name).to eq("Stock")
   end
 end

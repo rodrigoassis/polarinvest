@@ -15,7 +15,7 @@ class HomeController < ApplicationController
   private
 
   def graphic options = {}
-    LazyHighCharts::HighChart.new('graph', :style => '') do |f|
+    LazyHighCharts::HighChart.new('graph', style: '') do |f|
       f.title(text: '')
       f.rangeSelector(enabled: false)
       f.navigator(enabled: false)

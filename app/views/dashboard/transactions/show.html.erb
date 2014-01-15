@@ -1,0 +1,26 @@
+<p>
+  <strong>Investimento:</strong>
+  <%= @transaction.investment.asset.name %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @transaction.investment.class.clean_name %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= I18n.l(@transaction.date, format: :tiny) %>
+</p>
+
+<p>
+  <strong>Tipo de transação</strong>
+  <%= @transaction.transaction_type %>
+</p>
+
+<p>
+  <strong>Valor total:</strong>
+  <%= number_to_currency(@transaction.total_value, locale: :'pt-BR') %>
+</p>
+
+<%= link_to 'Back', dashboard_transactions_path %>
