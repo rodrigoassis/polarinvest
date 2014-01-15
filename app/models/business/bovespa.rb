@@ -55,7 +55,7 @@ module Business
 			#extract_codes
 
 			bovespa = ::Bovespa.new
-			bovespa.get(:ABEV3, :AEDU3, :ALLL3, :ALPA4, :ALSC3, :AMAR3, :AMBV3, :AMBV4, :ARTR3, :BBAS3, :BBDC3, :BBDC4, :BBRK3, 
+			bovespa.get(:ABEV3, :AEDU3, :ALLL3, :ALPA4, :ALSC3, :AMAR3, :ARTR3, :BBAS3, :BBDC3, :BBDC4, :BBRK3, 
 									:BBSE3, :BEEF3, :BISA3, :BRAP4, :BRFS3, :BRIN3, :BRKM5, :BRML3, :BRPR3, :BRSR6, :BSEV3, :BTOW3, :BVMF3,
 									:CCRO3, :CCXC3, :CESP6, :CIEL3, :CMIG4, :CPFE3, :CPLE6, :CRUZ3, :CSAN3, :CSMG3, :CSNA3, :CTIP3, :CYRE3,
 									:DASA3, :DIRR3, :DTEX3, :ECOR3, :ELET3, :ELET6, :ELPL4, :EMBR3, :ENBR3, :ENEV3, :EQTL3, :ESTC3, :EVEN3,
@@ -92,8 +92,12 @@ module Business
 			puts " ================ "
 		end
 
-		def self.find_share(ticker, name)
-			AssetTypes::Share.find_or_create_by(ticker: ticker, name: name)
+		def self.find_share(ticker, name = "")
+      if ticker && asset = AssetTypes::Share.where(ticker: ticker).first
+        asset
+      elsif ticker
+        AssetTypes::Share.create(ticker: ticker, name: name)
+      end
 		end
 
 		def self.save_history_values(line, asset)
@@ -111,7 +115,40 @@ module Business
 		end
 
 		def self.save_daily_values
+      day = fetch_codes
+
+      unless day.empty?
+        day.each do |active|
+          values = calculate(active[1])
+
+          asset = find_share(active[0].to_s)
+          RecordTypes::Share.create(asset_id: asset.id, date: active[1].date, 
+                                    percentage_delta: values[:percentage_delta], 
+                                    value_delta: values[:value_delta], 
+                                    value: values[:value])
+        end
+
+        puts " ================ "
+        puts "Day summary saved"
+        puts " ================ "
+      end
 		end
+
+    def self.calculate(active)
+      values = {}
+      if active.opening_price == 0.0
+        values[:percentage_delta] = (((active.last_price / 100) - 1) * 100).round(5)
+        values[:value_delta] = (active.last_price / 100).round(5)
+      else
+        values[:percentage_delta] = ((((active.last_price / 100) / (active.opening_price / 100)) - 1) * 100).round(5)
+        values[:value_delta] = ((active.last_price / 100) / (active.opening_price / 100)).round(5)
+      end
+
+      values[:value] = (active.last_price / 1000000).round(2).round(5)
+
+      values
+    end
+
 	end
 
 end
