@@ -12,28 +12,28 @@ describe "BovespaInfo" do
 	end
 
   it "returns an array of market situation" do
-    expect(Business::Bovespa.fetch_codes).to_not eq ""
+    expect(BovespaInfo.fetch_codes).to_not eq ""
   end
 
   it "returns an array of market situation" do
-    expect(Business::Bovespa.fetch_codes).to_not eq nil
+    expect(BovespaInfo.fetch_codes).to_not eq nil
   end
 
   it "find a ticker" do
     AssetTypes::Share.create(ticker: "PETR4", name: "Petrobras")
 
-    expect(Business::Bovespa.find_share("PETR4", "")).to be_true
+    expect(BovespaInfo.find_share("PETR4", "")).to be_true
   end
 
   it "create a ticker" do
-    expect(Business::Bovespa.find_share("PETR4", "")).to be_true
+    expect(BovespaInfo.find_share("PETR4", "")).to be_true
   end
 
   it "create a historical value" do
     AssetTypes::Share.create(ticker: "PETR4", name: "Petrobras")
     asset = Asset.all.first
-    line = "00COTAHIST.2012BOVESPA 20121228                                                                                                                                                                                                                      \r\n"
+    line = "012012010202ABCB4       010ABC BRASIL  PN  EJ  N2   R$  000000000122100000000012440000000001175000000000119400000000011850000000001185000000000119300465000000000000131800000000000157420100000000000000009999123100000010000000000000BRABCBACNPR4117"
 
-    expect(Business::Bovespa.save_history_values(line, asset)).to be_true
+    expect(BovespaInfo.save_history_values(line, asset)).to be_true
   end
 end

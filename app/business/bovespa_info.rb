@@ -2,7 +2,7 @@ require 'bovespa-prices'
 
 class BovespaInfo
 
-  # Download the file with the Bovespa ISIN codes from 
+  # Download the file with the Bovespa ISIN codes from
   # http://www.bmfbovespa.com.br/consulta-isin/BuscaCodigosIsin.aspx?idioma=pt-br
   def download_isin_file
   end
@@ -48,12 +48,12 @@ class BovespaInfo
 
   # Returns the fifteen minutes ago share market situation
   def self.fetch_codes
-    # TODO Make a way of use this method to get the codes from the file. 
+    # TODO Make a way of use this method to get the codes from the file.
     # We can't pass this way below, EXPLICIT. That make me sick!
     #extract_codes
 
     bovespa = ::Bovespa.new
-    bovespa.get(:ABEV3, :AEDU3, :ALLL3, :ALPA4, :ALSC3, :AMAR3, :ARTR3, :BBAS3, :BBDC3, :BBDC4, :BBRK3, 
+    bovespa.get(:ABEV3, :AEDU3, :ALLL3, :ALPA4, :ALSC3, :AMAR3, :ARTR3, :BBAS3, :BBDC3, :BBDC4, :BBRK3,
                 :BBSE3, :BEEF3, :BISA3, :BRAP4, :BRFS3, :BRIN3, :BRKM5, :BRML3, :BRPR3, :BRSR6, :BSEV3, :BTOW3, :BVMF3,
                 :CCRO3, :CCXC3, :CESP6, :CIEL3, :CMIG4, :CPFE3, :CPLE6, :CRUZ3, :CSAN3, :CSMG3, :CSNA3, :CTIP3, :CYRE3,
                 :DASA3, :DIRR3, :DTEX3, :ECOR3, :ELET3, :ELET6, :ELPL4, :EMBR3, :ENBR3, :ENEV3, :EQTL3, :ESTC3, :EVEN3,
@@ -107,8 +107,8 @@ class BovespaInfo
     #   binding.pry
     # end
 
-    RecordTypes::Share.create(asset_id: asset.id, date: Date.strptime(line[2..9].strip, '%Y%m%d'), 
-                              percentage_delta: percentage_delta.round(5), value_delta: value_delta.round(5), 
+    RecordTypes::Share.create(asset_id: asset.id, date: Date.strptime(line[2..9].strip, '%Y%m%d'),
+                              percentage_delta: percentage_delta.round(5), value_delta: value_delta.round(5),
                               value: value.round(5))
   end
 
@@ -120,9 +120,9 @@ class BovespaInfo
         values = calculate(active[1])
 
         asset = find_share(active[0].to_s)
-        RecordTypes::Share.create(asset_id: asset.id, date: active[1].date, 
-                                  percentage_delta: values[:percentage_delta], 
-                                  value_delta: values[:value_delta], 
+        RecordTypes::Share.create(asset_id: asset.id, date: active[1].date,
+                                  percentage_delta: values[:percentage_delta],
+                                  value_delta: values[:value_delta],
                                   value: values[:value])
       end
 
