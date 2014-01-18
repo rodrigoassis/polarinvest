@@ -1,9 +1,1 @@
-<%= form_for :home, :url => { :action => :show_asset } do |f| %>
-  <div class="col-md-6 col-md-offset-3 form-input">
-    <%= f.autocomplete_field :name, autocomplete_asset_name_dashboard_assets_path, placeholder: 'Investimento' %>
-  </div>
 
-  <div class="col-md-6 col-md-offset-3 form-submit">
-    <%= f.submit 'Buscar', class: 'btn btn-warning btn-lg' %>
-  </div>
-<% end %>
