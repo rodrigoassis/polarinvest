@@ -230,7 +230,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
-  config.omniauth :google_oauth2, "1009378154453-vpkids6gh2rji8r4hik8rp61ho5inpcr.apps.googleusercontent.com", "kshgKzlQffELnOayzdDFaTS9", { access_type: "offline", approval_prompt: "" }
+  config.omniauth :google_oauth2, "1009378154453-rstiquc25aka3j0aqeij489tr6596hc7.apps.googleusercontent.com", "_E9L2lEjPqRaph7ossmzR6jh", { access_type: "offline", approval_prompt: "" }
   if Rails.env.development?
     OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE unless defined?(OpenSSL::SSL::VERIFY_PEER)
   end
