@@ -61,14 +61,14 @@ describe HomeController do
     current_path.should == "/users/sign_in"
   end
 
-  it "can retrieve asset from search" do
-    asset = FactoryGirl.create(:asset)
-    visit "/"
+  #it "can retrieve asset from search" do
+    #asset = FactoryGirl.create(:asset)
+    #visit "/"
 
-    fill_in "home_name", with: "Poupança"
-    click_button "Buscar"
+    #fill_in "home_name", with: "Poupança"
+    #click_button "Buscar"
 
-    current_path.should == "/"
-  end
+    #current_path.should == "/"
+  #end
 
 end
