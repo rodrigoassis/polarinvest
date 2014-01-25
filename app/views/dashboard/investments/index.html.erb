@@ -9,14 +9,13 @@
         <thead>
           <tr>
             <th>Ativo</th>
-            <th colspan="2">Opções</th>
+            <th>Opções</th>
           </tr>
         </thead>
         <tbody>
           <% @investments.each do |investment| %>
             <tr class="gradeA">
               <td><%= investment.asset.name %></td>
-              <td><%= link_to 'Editar', edit_dashboard_investment_path(investment) %></td>
               <td><%= link_to 'Excluir', dashboard_investment_path(investment), method: :delete, data: { confirm: 'Tem certeza?' } %></td>
             </tr>
           <% end %>
