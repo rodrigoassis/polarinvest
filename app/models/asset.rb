@@ -8,6 +8,10 @@ class Asset < ActiveRecord::Base
   def self.subclasses
     [AssetTypes::Saving, AssetTypes::Stock]
   end
+
+  def display_name
+    "#{name} - #{ticker}"
+  end
   
   # Extract the real class name without any module
   def self.clean_name
