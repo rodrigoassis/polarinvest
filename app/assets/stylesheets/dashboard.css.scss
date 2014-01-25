@@ -5,3 +5,37 @@
 span.ui-helper-hidden-accessible{
   display: none;
 }
+
+ul.ui-autocomplete {
+  background-color: #fff;
+  border: 1px solid rgba(82,168,236,0.8);
+  box-shadow: 0 0 8px rgba(82,168,236,0.6);
+  display: none;
+  margin: 5px auto 0 auto;
+  max-height: 380px;
+  overflow-y: auto;
+  position: relative;
+  width: 20%;
+  z-index: 100;
+  padding: 0;
+
+  li {
+    list-style-type: none;
+    a {
+      border-bottom: 1px solid #ccc;
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 8px ;
+      text-align: left;
+    }
+  }
+  li:hover {
+    background-color: #08c;
+    outline: none;
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
