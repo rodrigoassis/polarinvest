@@ -1,0 +1,26 @@
+<div class="col-md-12">
+  <div class="box solid grey">
+    <div class="box-title">
+      <h4><i class="fa fa-dollar"></i>Rentabilidade</h4>
+      <div class="tools">
+      </div>
+    </div>
+    <div class="box-body">
+      <div id="chart-revenue" style="height:240px"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  jQuery(document).ready(function() {
+    $.ajax({
+      type: "GET",
+      async: false,
+      url: '/dashboard/investments/chart_info.js',
+      dataType: "text"
+    }).done(function(events) {
+
+    }).error(function() { console.log("Erro ao consultar API em: " + url); });
+      
+    });
+</script>

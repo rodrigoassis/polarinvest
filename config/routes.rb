@@ -9,7 +9,9 @@ Polarinvest::Application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: "registrations", sessions: "sessions" }
 
   namespace :dashboard do
-    resources :investments
+    resources :investments do
+      get :chart_info, on: :collection
+    end
     resources :transactions
     resources :assets do
       get :autocomplete_asset_name, on: :collection
