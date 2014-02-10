@@ -93,7 +93,7 @@ describe RegistrationsController do
 
     request.env["omniauth.auth"][:uid].should == '123545'
 
-    user = User.find_for_google_oauth2(request.env["omniauth.auth"])
+    user = User.find_for_oauth(request.env["omniauth.auth"])
 
     user.should_not be_nil
     user.should be_valid
@@ -110,7 +110,7 @@ describe RegistrationsController do
 
     request.env["omniauth.auth"][:uid].should == '123545'
 
-    user = User.find_for_google_oauth2(request.env["omniauth.auth"])
+    user = User.find_for_oauth(request.env["omniauth.auth"])
 
     user.should_not be_nil
     expect(user.name).to eq "John Doe"
@@ -124,7 +124,7 @@ describe RegistrationsController do
 
     request.env["omniauth.auth"][:uid].should == '123123123123'
 
-    user = User.find_for_facebook_oauth(request.env["omniauth.auth"])
+    user = User.find_for_oauth(request.env["omniauth.auth"])
 
     user.should_not be_nil
     user.should be_valid
@@ -141,7 +141,7 @@ describe RegistrationsController do
 
     request.env["omniauth.auth"][:uid].should == '123123123123'
 
-    user = User.find_for_facebook_oauth(request.env["omniauth.auth"])
+    user = User.find_for_oauth(request.env["omniauth.auth"])
 
     user.should_not be_nil
     expect(user.name).to eq "John Doe"
@@ -155,7 +155,7 @@ describe RegistrationsController do
 
     request.env["omniauth.auth"][:uid].should == '123456'
 
-    user = User.find_for_twitter_oauth(request.env["omniauth.auth"])
+    user = User.find_for_oauth(request.env["omniauth.auth"])
 
     user.should_not be_nil
     user.should be_valid
@@ -172,7 +172,7 @@ describe RegistrationsController do
 
     request.env["omniauth.auth"][:uid].should == '123456'
 
-    user = User.find_for_twitter_oauth(request.env["omniauth.auth"])
+    user = User.find_for_oauth(request.env["omniauth.auth"])
 
     user.should_not be_nil
     expect(user.name).to eq "John Doe"

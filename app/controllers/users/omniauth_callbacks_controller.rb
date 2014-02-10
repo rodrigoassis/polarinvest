@@ -1,7 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google_oauth2
     # Method to find the user based on user that google authorized
-    @user = User.find_for_google_oauth2(request.env["omniauth.auth"], current_user)
+    @user = User.find_for_oauth(request.env["omniauth.auth"])
 
     if @user.persisted?
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", kind: "Google"
@@ -14,7 +14,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def facebook
     # Method to find the user based on user that facebook authorized
-    @user = User.find_for_facebook_oauth(request.env["omniauth.auth"], current_user)
+    @user = User.find_for_oauth(request.env["omniauth.auth"])
 
     if @user.persisted?
       sign_in_and_redirect @user, event: :authentication #this will throw if @user is not activated
@@ -27,7 +27,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def twitter
     # Method to find the user based on user that facebook authorized
-    @user = User.find_for_twitter_oauth(request.env["omniauth.auth"], current_user)
+    @user = User.find_for_oauth(request.env["omniauth.auth"])
 
     if @user.persisted?
       sign_in_and_redirect @user, event: :authentication #this will throw if @user is not activated

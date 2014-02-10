@@ -14,6 +14,12 @@ describe Asset do
     FactoryGirl.build(:asset, type: nil).should_not be_valid
   end
 
+  it "Have display name" do
+    asset = FactoryGirl.create(:asset)
+
+    expect(asset.display_name).to eq("Poupança - ")
+  end
+
   it "has many records" do
     record = FactoryGirl.create(:record)
     expect(record.asset.records.size).to eq 1

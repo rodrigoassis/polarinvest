@@ -9,6 +9,12 @@ describe "Share" do
 		expect(AssetTypes::Share.new(ticker: nil)).to have(1).errors_on(:ticker)
 	end
 
+	it "Have display name" do
+		share = AssetTypes::Share.create(ticker: "TEST",name: "Test")
+
+		expect(share.display_name).to eq("Test - TEST")
+	end
+
 	it "Ticker must be unique" do
 		AssetTypes::Share.create(
 			ticker: "TEST",
