@@ -77,14 +77,9 @@ end
 gem 'bovespa-prices'
 gem 'whenever', :require => false
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
 # Use Capistrano for deployment
-# gem 'capistrano', group: :development
+gem 'capistrano', '~> 2.15.4'
+gem 'rvm-capistrano'
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+# Performance management
+gem 'newrelic_rpm'
